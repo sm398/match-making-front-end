@@ -1,0 +1,122 @@
+.round {
+    border-radius: 50%;
+}
+
+.carouselImage {
+    width: 100%;
+}
+
+.centerImage {
+    display: block;
+    margin: auto;
+}
+
+div.imagetiles div.col-lg-3.col-md-3.col-sm-3.col-xs-6{
+    padding: 0px;
+}
+
+.image_with_badge_container {
+    display: inline-block; /* keeps the img with the badge if the img is forced to a new line */
+    position: relative;
+}
+
+.badge-on-image {
+    position: absolute;
+    bottom: 10px; /* position where you want it */
+    left: 35%;
+    padding: 3px 6px;
+}
+
+.homePageCard {
+    padding-top: 0px;
+    padding-bottom: 5px;
+}
+
+.inner_div {
+    width: 100%;
+    height: 55%;
+    position: absolute;
+    bottom: 0;
+    margin: 0 auto;
+}
+
+#footballCarousel {
+    width: 200px;
+}
+
+.footballCard {
+    height: 93%;
+    padding: 0px;
+}
+
+.sportBox {
+    width: 91%;
+    opacity: 0.95;
+    font-size: 20px;
+    padding-top: 5px;
+}
+
+.matchButton {
+    font-family: 'Lobster', cursive;
+    font-size: 120%;
+    float: left;
+    margin-left: 7%;
+}
+
+.matchFriendsButton {
+    font-family: 'Lobster', cursive;
+    font-size: 120%;
+    float: right;
+    margin-right: 7%;
+}
+
+.basketButtons {
+    background-color: orange;
+}
+
+.sportTitle {
+    font-family: 'Lobster', cursive;
+    font-size: 40px;
+    text-align: center;
+    display: inline-block;
+    margin-left: 0px;
+}
+
+.button--material {
+    text-transform: none;
+}
+
+.button--material--flat {
+    text-transform: none;
+}
+
+.sportButton {
+    margin-top: 10px;
+}
+
+#mainCarousel {
+    height: 65%;
+}
+
+.locations {
+    float: right;
+}
+
+.times {
+    float:left;
+}
+
+.profile {
+    position:absolute;
+    bottom:0px;
+    height: 35%;
+    width: 100%;
+    padding: 0px;
+}
+
+.verticalSeparator {
+    border-left: 1px solid #31E812;
+    height: 100%;
+    margin-right: 10px;
+    margin-left: 2px;
+}

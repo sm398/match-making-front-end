@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>MatchMaking</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+    <script src="lib/onsen/js/onsenui.js"></script>
+    <link rel="stylesheet" href="lib/onsen/css/onsenui.css">
+    <link rel="stylesheet" href="lib/onsen/css/onsen-css-components.css">
+    <script src="lib/onsen/js/index.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<ons-navigator swipeable id="pageNavigator" page="mainDisplay.html"></ons-navigator>
+
+<template id="matchPage.html">
+    <ons-page id="matchPage">
+        <ons-toolbar>
+            <div class="right">
+                <ons-back-button onclick="enableParameterButtons()">Quit</ons-back-button>
+            </div>
+            <div class="center">Football 6-a-side</div>
+        </ons-toolbar>
+
+        <br/>
+
+        <ons-list modifier="inset" class="teamList">
+            <ons-list-header id="team1">Team 1</ons-list-header>
+        </ons-list>
+
+        <br/>
+
+        <ons-list modifier="inset" class="teamList">
+            <ons-list-header id="team2">Team 2</ons-list-header>
+        </ons-list>
+
+
+    </ons-page>
+</template>
+
+
+<template id="profilePage.html">
+    <ons-page>
+        <ons-toolbar>
+            <div class="left">
+                <ons-back-button>Back</ons-back-button>
+            </div>
+            <div class="center">Snoop's profile</div>
+        </ons-toolbar>
+
+        <ons-card>
+            <img class="round centerImage"
+                 src="https://www.biography.com/.image/t_share/MTQ3NjM5ODIyNjU0MTIxMDM0/snoop_dogg_photo_by_estevan_oriol_archive_photos_getty_455616412.jpg"
+                 alt="Onsen UI" style="width: 50%">
+            <div class="title" style="text-align: center">
+                <a href="#" class="btn btn-warning">+ 420</a>
+                Snoop Dog
+            </div>
+        </ons-card>
+
+
+        <ons-card class="homePageCard">
+            <div class="row imagetiles">
+                <ons-list-item tappable>
+                    <div class="left">
+                        <ons-icon icon="ion-bag"></ons-icon>
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">Current items</span><span
+                            class="list-item__subtitle">2 listed</span>
+                    </div>
+                </ons-list-item>
+                <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                         class="img-responsive">
+                    <span class="badge-on-image"><a href="#" class="btn btn-warning">+ 23</a></span>
+                </div>
+                <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                         class="img-responsive">
+                    <span class="badge-on-image"><a href="#" class="btn btn-warning">- 10</a></span>
+                </div>
+            </div>
+        </ons-card>
+
+        <ons-card class="homePageCard">
+            <div class="row imagetiles">
+                <ons-list-item tappable>
+                    <div class="left">
+                        <ons-icon icon="ion-star"></ons-icon>
+                    </div>
+                    <div class="center">
+                        <span class="list-item__title">Favourites</span><span
+                            class="list-item__subtitle">2 items</span>
+                    </div>
+                </ons-list-item>
+                <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                         class="img-responsive">
+                    <span class="badge-on-image"><a href="#" class="btn btn-warning">+ 23</a></span>
+                </div>
+                <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                    <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                         class="img-responsive">
+                    <span class="badge-on-image"><a href="#" class="btn btn-warning">- 10</a></span>
+                </div>
+            </div>
+        </ons-card>
+
+    </ons-page>
+</template>
+
+
+<template id="mainDisplay.html">
+    <ons-page>
+        <ons-toolbar id="mainToolbar">
+            <div class="center">MatchMaking</div>
+            <div class="right"></div>
+        </ons-toolbar>
+
+        <ons-tabbar position="auto">
+            <ons-tab page="homeTab.html" label="Match" icon="ion-ios-football" active
+                     onclick="removeLeftToolbarButton()"></ons-tab>
+            <ons-tab page="friendsTab.html" label="Friends" icon="ion-ios-people" id="friendsTab"
+                     onclick="setAddFriendButton()"></ons-tab>
+        </ons-tabbar>
+
+        <template id="homeTab.html">
+            <ons-page>
+
+                <ons-carousel swipeable auto-scroll overscrollable id="mainCarousel">
+
+                    <ons-carousel-item id="footballCarouselItem">
+                        <ons-card class="footballCard" style="background: url('img/footballBG.jpg') no-repeat center;">
+                            <div class="inner_div" style="text-align: center; font-size: 30px; margin-top: 20px;">
+                                <ons-card class="sportBox">
+                                    <ons-list style="text-align: center;">
+                                        <div style="float: left">
+                                            <ons-button class="parameterButton" onclick="prevSport()"
+                                                        class="sportButton">
+                                                <ons-icon icon="md-chevron-left"></ons-icon>
+                                            </ons-button>
+                                        </div>
+                                        <div style="float: right">
+                                            <ons-button class="parameterButton" onclick="nextSport()"
+                                                        class="sportButton">
+                                                <ons-icon icon="md-chevron-right"></ons-icon>
+                                            </ons-button>
+                                        </div>
+                                        <div class="sportTitle" style="margin:0 auto  !important;">Football</div>
+                                        <br/>
+                                        <div style="float: left;">
+                                            <ons-toolbar-button class="parameterButton" onclick="prevFootballType()">
+                                                <ons-icon icon="md-chevron-left"></ons-icon>
+                                            </ons-toolbar-button>
+                                        </div>
+                                        <div style="float: right">
+                                            <ons-toolbar-button class="parameterButton" onclick="nextFootballType()">
+                                                <ons-icon icon="md-chevron-right"></ons-icon>
+                                            </ons-toolbar-button>
+                                        </div>
+                                        <div style="margin:0 auto  !important;">
+                                            <ons-carousel auto-scroll overscrollable id="footballCarousel">
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        6-a-side
+                                                    </div>
+                                                </ons-carousel-item>
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        11-a-side
+                                                    </div>
+                                                </ons-carousel-item>
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        Any
+                                                    </div>
+                                                </ons-carousel-item>
+                                            </ons-carousel>
+                                        </div>
+                                        <ons-button  onclick="app.showFromTemplate()" class="parameterButton" modifier="quiet" class="times">
+                                            <ons-icon id="time" icon="ion-calendar"> Today</ons-icon>
+                                        </ons-button>
+
+                                        <ons-button class="parameterButton" modifier="quiet" class="locations">
+                                            <ons-icon id="location" icon="ion-location"></ons-icon>
+                                        </ons-button>
+
+
+                                    </ons-list>
+                                </ons-card>
+                            </div>
+                        </ons-card>
+                    </ons-carousel-item>
+
+                    <ons-carousel-item id="footballCarouselItem">
+                        <ons-card class="footballCard" style="background: url('img/rugbyBG.jpg') no-repeat center;">
+                            <div class="inner_div" style="text-align: center; font-size: 30px; margin-top: 20px;">
+                                <ons-card class="sportBox">
+                                    <ons-list style="text-align: center;">
+                                        <div style="float: left">
+                                            <ons-button onclick="prevSport()" class="sportButton">
+                                                <ons-icon icon="md-chevron-left"></ons-icon>
+                                            </ons-button>
+                                        </div>
+                                        <div style="float: right">
+                                            <ons-button onclick="nextSport()" class="sportButton">
+                                                <ons-icon icon="md-chevron-right"></ons-icon>
+                                            </ons-button>
+                                        </div>
+                                        <div class="sportTitle" style="margin:0 auto  !important;">Rugby</div>
+                                        <br/>
+                                        <div style="float: left;">
+                                            <ons-toolbar-button onclick="prevFootballType()">
+                                                <ons-icon icon="md-chevron-left"></ons-icon>
+                                            </ons-toolbar-button>
+                                        </div>
+                                        <div style="float: right">
+                                            <ons-toolbar-button onclick="nextFootballType()">
+                                                <ons-icon icon="md-chevron-right"></ons-icon>
+                                            </ons-toolbar-button>
+                                        </div>
+                                        <div style="margin:0 auto  !important;">
+                                            <ons-carousel auto-scroll overscrollable id="footballCarousel">
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        6-a-side
+                                                    </div>
+                                                </ons-carousel-item>
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        11-a-side
+                                                    </div>
+                                                </ons-carousel-item>
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        Any
+                                                    </div>
+                                                </ons-carousel-item>
+                                            </ons-carousel>
+                                        </div>
+                                        <ons-button class="parameterButton" modifier="quiet" class="times">
+                                            <ons-icon icon="ion-calendar"> Today</ons-icon>
+                                        </ons-button>
+
+                                        <ons-button modifier="quiet" class="locations">
+                                            <ons-icon icon="ion-location"> 3 selected locations</ons-icon>
+                                        </ons-button>
+                                    </ons-list>
+                                </ons-card>
+                            </div>
+                        </ons-card>
+                    </ons-carousel-item>
+
+                    <ons-carousel-item id="footballCarouselItem">
+                        <ons-card class="footballCard"
+                                  style="background: url('img/basketballBG.jpg') no-repeat center;">
+                            <div class="inner_div" style="text-align: center; font-size: 30px; margin-top: 20px;">
+                                <ons-card class="sportBox">
+                                    <ons-list style="text-align: center;">
+                                        <div style="float: left">
+                                            <ons-button onclick="prevSport()" class="sportButton">
+                                                <ons-icon icon="md-chevron-left"></ons-icon>
+                                            </ons-button>
+                                        </div>
+                                        <div style="float: right">
+                                            <ons-button onclick="nextSport()" class="sportButton">
+                                                <ons-icon icon="md-chevron-right"></ons-icon>
+                                            </ons-button>
+                                        </div>
+                                        <div class="sportTitle" style="margin:0 auto  !important;">Basketball</div>
+                                        <br/>
+                                        <div style="float: left;">
+                                            <ons-toolbar-button onclick="prevFootballType()">
+                                                <ons-icon icon="md-chevron-left"></ons-icon>
+                                            </ons-toolbar-button>
+                                        </div>
+                                        <div style="float: right">
+                                            <ons-toolbar-button onclick="nextFootballType()">
+                                                <ons-icon icon="md-chevron-right"></ons-icon>
+                                            </ons-toolbar-button>
+                                        </div>
+                                        <div style="margin:0 auto  !important;">
+                                            <ons-carousel auto-scroll overscrollable id="footballCarousel">
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        6-a-side
+                                                    </div>
+                                                </ons-carousel-item>
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        11-a-side
+                                                    </div>
+                                                </ons-carousel-item>
+                                                <ons-carousel-item style="">
+                                                    <div style="text-align: center; font-size: 25px; color: #00261C;">
+                                                        Any
+                                                    </div>
+                                                </ons-carousel-item>
+                                            </ons-carousel>
+                                        </div>
+                                        <ons-button modifier="quiet" class="times">
+                                            <ons-icon icon="ion-calendar"> Tomorrow</ons-icon>
+                                        </ons-button>
+
+                                        <ons-button modifier="quiet" class="locations">
+                                            <ons-icon icon="ion-location"> 3 selected locations</ons-icon>
+                                        </ons-button>
+                                    </ons-list>
+                                </ons-card>
+                            </div>
+                        </ons-card>
+                    </ons-carousel-item>
+
+
+                </ons-carousel>
+
+
+                <ons-list class="profile">
+                    <ons-list-item tappable modifier="longdivider">
+                        <div class="left">
+                            <img class="list-item__thumbnail"
+                                 src="https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/24774816_10204013170686025_6074543013092232316_n.jpg?oh=4ba0dbf5f20559f6ba3653c534fbdbae&oe=5AB25338">
+                        </div>
+                        <div class="center">
+                            <span class="list-item__title" id="name">Saad Moussadek</span>
+                            <span class="list-item__subtitle">Winger</span>
+                        </div>
+                        <div class="right">
+                            <ons-icon icon="ion-edit"></ons-icon>
+                        </div>
+                    </ons-list-item>
+
+
+                    <ons-list-item modifier="nodivider">
+                        <div class="left" id="matchStatus">
+                            <ons-icon icon="ion-ios-people"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Matching players in your area: 4751
+                        </div>
+                    </ons-list-item>
+
+                    <ons-button class="matchButton parameterButton" modifier="quiet"
+                                onclick="matchMe()">Match me!
+                    </ons-button>
+                    <ons-button class="matchFriendsButton parameterButton">Match me with friends!</ons-button>
+
+
+                </ons-list>
+
+
+            </ons-page>
+        </template>
+
+        <template id="action-sheet.html">
+            <ons-action-sheet id="sheet" cancelable title="Choose time...">
+                <ons-action-sheet-button onclick="app.hideFromTemplate()">Today</ons-action-sheet-button>
+                <ons-action-sheet-button onclick="app.hideFromTemplate()">Tomorrow</ons-action-sheet-button>
+                <ons-action-sheet-button onclick="app.hideFromTemplate()" modifier="destructive">Any</ons-action-sheet-button>
+                <ons-action-sheet-button icon="md-close" onclick="app.hideFromTemplate()">Cancel</ons-action-sheet-button>
+            </ons-action-sheet>
+        </template>
+
+        <template id="friendsTab.html">
+
+            <ons-page id="page2">
+
+                <ons-list>
+
+                    <ons-list-header>Friends</ons-list-header>
+
+                    <ons-list-item tappable onclick="pushProfilePage()">
+                        <div class="left">
+                            <img class="list-item__thumbnail"
+                                 src="https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/24774816_10204013170686025_6074543013092232316_n.jpg?oh=4ba0dbf5f20559f6ba3653c534fbdbae&oe=5AB25338">
+                        </div>
+                        <div class="center">
+                            Saad
+                        </div>
+                    </ons-list-item>
+                    <ons-list-item tappable onclick="pushProfilePage()">
+                        <div class="left">
+                            <img class="list-item__thumbnail"
+                                 src="https://scontent-mrs1-1.xx.fbcdn.net/v/t1.0-9/19883948_10211654374613312_7630071561652914354_n.jpg?oh=e491c78ceb56f6c6734bcb071f8da11b&oe=5ABB2259">
+                        </div>
+                        <div class="center">
+                            Naman
+                        </div>
+                    </ons-list-item>
+                    <ons-list-item tappable onclick="pushProfilePage()">
+                        <div class="left">
+                            <img class="list-item__thumbnail" src="https://i.ytimg.com/vi/o4cdBIaNlo0/hqdefault.jpg">
+                        </div>
+                        <div class="center">
+                            Tyrone
+                        </div>
+                    </ons-list-item>
+                </ons-list>
+
+            </ons-page>
+
+        </template>
+
+        <template id="accountTab.html">
+
+            <ons-page>
+
+                <ons-card>
+                    <img class="round centerImage"
+                         src="https://www.biography.com/.image/t_share/MTQ3NjM5ODIyNjU0MTIxMDM0/snoop_dogg_photo_by_estevan_oriol_archive_photos_getty_455616412.jpg"
+                         alt="Onsen UI" style="width: 50%">
+                    <div class="title" style="text-align: center">
+                        <a href="#" class="btn btn-warning">+ 420</a>
+                        Snoop Dog
+                    </div>
+                </ons-card>
+
+
+                <ons-card class="homePageCard">
+                    <div class="row imagetiles">
+                        <ons-list-item tappable>
+                            <div class="left">
+                                <ons-icon icon="ion-bag"></ons-icon>
+                            </div>
+                            <div class="center">
+                                <span class="list-item__title">Current items</span><span
+                                    class="list-item__subtitle">2 listed</span>
+                            </div>
+                        </ons-list-item>
+                        <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                                 class="img-responsive">
+                            <span class="badge-on-image"><a href="#" class="btn btn-warning">+ 23</a></span>
+                        </div>
+                        <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                                 class="img-responsive">
+                            <span class="badge-on-image"><a href="#" class="btn btn-warning">- 10</a></span>
+                        </div>
+                    </div>
+                </ons-card>
+
+                <ons-card class="homePageCard">
+                    <div class="row imagetiles">
+                        <ons-list-item tappable>
+                            <div class="left">
+                                <ons-icon icon="ion-star"></ons-icon>
+                            </div>
+                            <div class="center">
+                                <span class="list-item__title">Favourites</span><span
+                                    class="list-item__subtitle">2 items</span>
+                            </div>
+                        </ons-list-item>
+                        <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                                 class="img-responsive">
+                            <span class="badge-on-image"><a href="#" class="btn btn-warning">+ 23</a></span>
+                        </div>
+                        <div class="image_with_badge_container col-lg-3 col-md-3 col-sm-3 col-xs-6">
+                            <img src=https://i.pinimg.com/736x/62/73/34/6273349f32e0b87f4dc6afaf1f522854--mens-hoodies-hooded-sweatshirts.jpg
+                                 class="img-responsive">
+                            <span class="badge-on-image"><a href="#" class="btn btn-warning">- 10</a></span>
+                        </div>
+                    </div>
+                </ons-card>
+
+                <br/>
+
+                <ons-list>
+                    <ons-list-item modifier="chevron" tappable>
+                        <div class="left">
+                            <ons-icon icon="ion-gear-b" class="list-item__icon"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Settings
+                        </div>
+                    </ons-list-item>
+                    <br/>
+                    <ons-list-item modifier="chevron" tappable>
+                        <div class="left">
+                            <ons-icon icon="ion-log-out" class="list-item__icon"></ons-icon>
+                        </div>
+                        <div class="center">
+                            Log out
+                        </div>
+                    </ons-list-item>
+
+                </ons-list>
+
+                <br/>
+
+
+                </ons-card>
+
+
+            </ons-page>
+        </template>
+
+
+        <script src="lib/onsen/js/index.js"></script>
+        <script type="text/javascript" src="cordova.js"></script>
+
+
+    </ons-page>
+</template>
+</body>
+
+</html>
